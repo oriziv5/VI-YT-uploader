@@ -15,3 +15,4 @@ run the server in dev mode:
 Downloading from youtube is on your own risk!
 Please make sure you download only public videos and pay attention to their copyrights.
 
+<img src="screenshot.png" width="400px" />

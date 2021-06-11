@@ -3,7 +3,6 @@ import * as bodyParser from "body-parser";
 import { routes } from "./api/routes/app.routes";
 import * as cors from "cors";
 import * as http from "http";
-// tslint:disable-next-line:no-duplicate-imports
 import * as _ from "lodash";
 import { Logger } from "./helpers/logger";
 
@@ -26,7 +25,6 @@ app.use(cors());
 // Define routes
 routes(app);
 
-// If route was not found
 // General error handler
 app.use((err, req, res, next) => {
   res.status(500).json({ error: "Internal Error" });

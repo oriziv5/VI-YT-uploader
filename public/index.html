@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <meta name="referrer" content="never">
+  <meta name="referrer" content="no-referrer">
+  <title>Youtube to VI</title>
+</head>
+
+<body>
+  <div class="container">
+    <h4>Upload videos to your Video Indexer account<br/>
+      Supports any link or YouTube / <a href="https://www.vimeo.com/">vimeo</a> url
+      <br>Supports upload batch links (see Advanced options)
+    </h4>
+    <h5 class="ui green message">* Youtube is supported again!</h5>
+
+
+    <form action="#" autocomplete="on" class="ui form segment">
+      <div id="inputs">
+          <div class="field">
+              <label for="accountId" class="doc">Account ID</label>
+              <input required autocomplete type="text" placeholder="00000000-0000-0000-0000-000000000000" id="accountId" class="doc"
+                name="accountId" />
+            </div>
+      
+            <div class="field">
+              <label for="pass" class="doc" data-html='Click <a href="https://api-portal.videoindexer.ai" target="_blank">here</a> to sign up and get your api key. You can paste an access token as well'>API Key / Account Access Token
+                 <!-- <a href="https://api-portal.videoindexer.ai" target="_blank">API Key</a> -->
+              </label>
+              <input required type="password" placeholder="Enter your VI API key" id="pass" class="doc" name="apiKey" />
+            </div>
+            <div class="field">
+              <label for="videoUrl" class="doc" title="Can be any video link as long as it pointing to a file">Video Link</label>
+              <input type="url" placeholder="i.e https://www.youtube.com/watch?v=xxxxxxxx" id="url" class="doc" name="videoUrl" />
+            </div>
+            <div class="ui accordion">
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                      Advanced options
+                  </div>
+                  <div class="content">
+                    <div class="field">
+                      <label for="videoName" class="doc">Title</label>
+                      <input type="text" value="" placeholder="Enter video name (optional)" id="videoName" class="doc" name="name" />
+                    </div>
+                    <div class="two fields">                      
+                      <div class="field">
+                        <label for="environment" class="doc">Environment</label>
+                        <select id="environment" name="env" class="ui fluid dropdown">
+                          <option class="doc" selected value="prod">Production</option>
+                        </select>
+                      </div>
+                      <div class="field">
+                        <label for="region" class="doc">Region</label>
+                        <select id="region" class="doc search" name="region">
+                          <option class="doc" value="trial" selected>Trial</option>
+                          <option class="doc" value="eastus">East US</option>
+                          <option class="doc" value="westus">West US</option>
+                          <option class="doc" value="westus2">West US 2</option>
+                          <option class="doc" value="northcentralus">North Central US</option>
+                          <option class="doc" value="eastasia">East Asia</option>
+                          <option class="doc" value="northeurope">North Europe</option>
+                          <option class="doc" value="westeurope">West Europe</option>
+                          <option class="doc" value="southeastasia">South East Asia</option>
+                          <option class="doc" value="eastus2">East US 2</option>
+                          <option class="doc" value="australiaeast">Australia East</option>
+                          <option class="doc" value="southcentralus">South Central US</option>
+                          <option class="doc" value="japaneast">Japan East</option>
+                          <option class="doc" value="uksouth">UK South</option>
+                          <option class="doc" value="switzerlandnorth">Switzerland North</option>
+                          <option class="doc" value="switzerlandwest">Switzerland West</option>
+                          <option class="doc" value="centralindia">Central India</option>
+                          <option class="doc" value="canadacentral">Canada Central</option>
+                          <option class="doc" value="usgovvirginia">US Gov Virginia</option>
+                          <option class="doc" value="usgovarizona">US Gov Arizona</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="two fields">
+                      <div class="field">
+                          <label for="langSel" class="doc">Source language</label>
+                          <select id="langSel" class="ui fluid dropdown search" name="language">
+
+                          </select>                       
+                          </div>                    
+                      <div class="field">
+                        <label for="privacySelect" class="doc">Privacy</label>
+                        <select id="privacySelect"  name="privacy" class="ui fluid dropdown">
+                          <option class="doc" value="public">Public</option>
+                          <option class="doc" selected value="private">Private</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="two fields">
+                      <div class="field">
+                        <label for="streamingSelect" class="doc">Streaming quality</label>
+                        <select id="streamingSelect" class="doc" name="streamingPreset" class="ui fluid dropdown">
+                          <option class="doc" selected value="Default">Single streaming</option>
+                          <option class="doc" value="AdaptiveBitrate">Adaptive bitrate</option>
+                          <option class="doc" value="NoStreaming">No streaming</option>
+
+                        </select>
+                      </div>
+                      <div class="field">
+                        <label for="indexingPresetSelect" class="doc">Video + Audio indexing</label>
+                        <select id="indexingPresetSelect" class="doc" name="indexingPreset" class="ui fluid dropdown">
+                          <option class="doc" selected value="Default">Audio/Video - Default</option>
+                          <option class="doc" value="Advanced">Audio/Video - Advanced</option>
+                          <option class="doc" value="VideoOnly">Video only - Standard</option>
+                          <option class="doc" value="AdvancedVideo">Video only - Advanced</option>
+                          <option class="doc" value="BasicAudio">Audio only - Basic</option>
+                          <option class="doc" value="AudioOnly">Audio only - Standard</option>
+                          <option class="doc" value="AdvancedAudio">Audio only - Advanced</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="two fields">
+                      <div class="field">
+                        <label for="personModelId" class="doc">People Model ID</label>
+                        <input type="text" value="" placeholder="Enter your account people model id" id="personModelId" class="doc" name="personModelId" />
+                      </div>
+                      <div class="field">
+                        <label for="animationModelId" class="doc">Animation Model ID</label>
+                        <input type="text" value="" placeholder="Enter your account animation model id" id="animationModelId" class="doc" name="animationModelId" />
+                      </div>
+                    </div>
+                    <div class="two fields">
+                      <div class="field">
+                        <label for="linguisticModelId" class="doc">Linguistic Model ID</label>
+                        <input type="text" value="" placeholder="Enter your linguistic model id" id="linguisticModelId" class="doc" name="linguisticModelId" />
+                      </div>
+                      <div class="field">
+                        <label for="assetId" class="doc">Asset ID</label>
+                        <input type="text" value="" placeholder="Enter your ams aasset id" id="assetId" class="doc" name="assetId" />
+                      </div>
+                    </div>
+                    <div class="two fields">
+                      <div class="field">
+                        <label for="partition" class="doc">Partition</label>
+                        <input type="text" value="" placeholder="Enter your partition" id="partition" class="doc" name="partition" />
+                      </div>
+                      <div class="field">
+                        <label for="metadata" class="doc">Metadata</label>
+                        <input type="text" value="" placeholder="Enter your metadata" id="metadata" class="doc" name="metadata" />
+                      </div>
+                    </div>
+                    <div class="two fields">
+                      <div class="field">
+                        <label for="sendSuccessEmail" class="doc">Send success mail</label>
+                        <select id="sendSuccessEmail" class="doc" name="sendSuccessEmail" class="ui fluid dropdown">
+                          <option value="true" selected>True</option>
+                          <option value="false" >False</option>
+                        </select>
+                      </div>
+                      <!-- <div class="field">
+                        <label for="metadata" class="doc">Metadata</label>
+                        <input type="text" value="" placeholder="Enter your metadata" id="metadata" class="doc" name="metadata" />
+                      </div> -->
+                    </div>
+                      <div class="field">
+                        <label for="file" class="doc" 
+                          data-html='Upload text file containing list of youtube video links seperated by line break'>Upload batch (Preview)
+                       </label>
+                        <input id="file" type="file" class="ui button" accept="text/*" name="files" >
+                        <div class="ui green message" id="uploadBatchFileInfo">Found
+                        </div>
+                      </div>                   
+                  </div>
+            </div>
+            <div class="cta">
+              <button type="submit" id="sub" class="ui primary button" >Upload</button>
+              <div class="ui indicating progress">
+                  <div class="bar"></div>
+              </div>
+            </div>
+      </div>
+      
+      <div class="ui red message" id="errorMessage">
+      </div>
+      <div class="ui green message" id="successMessage">
+      </div>
+      <div class="ui teal message" id="infoMessage">
+      </div>
+    </form>
+    <div class="ui blue message">
+
+      <h5>How to use?
+      </h5>
+      <p>
+        <ol>
+          <li>Get your account id from the environment you want to upload to. you can find the account id at the account list or in your account settings</li>
+          <li>Get your API Key or the account access token (allowEdit=true). If you aquire API Key make sure you take it from the right APIM environment.
+            (<a href="https://api-portal.videoindexer.ai/" target="_blank">prod</a>)</li>
+          <li>Choose if you want to upload batch videos (via a text file containing direct links seperated by line break) or one by one</li>
+          <li>Apply other settings if you chose to upload just one video.</li>
+        </ol>
+      </p>
+    </div>
+    <a class="ui pointing basic label" href="https://github.com/oriziv" target="_blank">Created with &#10084; by ORIZIV</a>
+  </div>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+  <script src="dist/main.js"> </script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+body {
+  background: white;
+}
+form {
+  border: none;
+  min-width: 375px;
+  margin: 0 auto;
+  background: white;
+}
+form input {
+  width: 100%;
+}
+form.form select {
+  width: 100%;
+  display: block;
+}
+#statusBar {
+  display: inline-block;
+  vertical-align: top;
+}
+#spinner {
+  display: none;
+}
+#spinner.show {
+  display: inline-block;
+}
+#logos {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+.logo {
+  padding: 8px;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+.cta {
+  margin-top: 10px;
+}
+.logo img {
+  height: 40px;
+  width: 40px;
+}
+.youtube {
+  border-color: red;
+}
+.vi {
+  padding-left: 13px;
+}
+.text-thumb {
+  display: inline-block;
+  width: 60%;
+  vertical-align: top;
+  padding: 0 6px;
+}
+.container {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.circle {
+  vertical-align: top;
+  margin-top: 22px;
+  width: 20px;
+  height: 20px;
+  background: #333;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#inputs {
+  transition: all 0.4s;
+}
+.ui.form .field > label[for="pass"] {
+  color: blue;
+  cursor: pointer;
+}
+
+h4 {
+  text-align: center;
+}
+
+ol>li {
+  padding-bottom: 7px;
+}
